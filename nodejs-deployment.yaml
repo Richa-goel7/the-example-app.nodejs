@@ -19,4 +19,16 @@ spec:
         image: richaa741994/my_first_repo:latest
         ports:
         - containerPort: 3000
+---
 
+apiVersion: v1
+kind: Service
+metadata:
+  name: nodejs
+spec:
+  selector:
+    app: nodejs
+  ports:
+    - port: 80
+      targetPort: 3000
+  type: LoadBalancer
